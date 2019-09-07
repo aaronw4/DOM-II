@@ -49,9 +49,9 @@ let newFooter = document.createElement('p');
 let footer = document.querySelector('footer');
 footer.append(newFooter);
 function selectWords(e) {    
-    let selection = e.target.words[0].substring(e.target.selectionStart, e.target.selectionEnd);
+    let selection = e.target.substring(e.target.selectionStart, e.target.selectionEnd);
     console.log(selection);
-    newFooter.textContent = selection;      
+    newFooter.target.textContent = selection;      
 }
 
 words[0].addEventListener('select', selectWords);
@@ -68,4 +68,12 @@ destHead.addEventListener('click', (e) => {
     destHead.stopPropagation();
 })
 
+//attempted animation
+let h2 = document.querySelector('h2');
+
+function animation(elem) {    
+TweenMax.to(h2, 6, {backgroundColor:'indigo'});
+}
+
+h2.addEventListener('mouseover', animation);
 

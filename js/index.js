@@ -25,7 +25,7 @@ images[3].addEventListener('wheel', (e) => {
 })
 
 let words = document.querySelectorAll('p');
-words[0].addEventListener('click', (e) => {
+words[0].addEventListener('mousedown', (e) => {
     words[0].style.fontSize = '20px';
 })
 
@@ -33,22 +33,18 @@ words[1].addEventListener('contextmenu', (e) => {
     words[1].style.color = 'DarkGreen';
 })
 
-let buttons = document.querySelectorAll('btn');
+words[2].addEventListener('drag', (e) => {
+    words[2].style.textDecoration = 'underline';
+})
+
+let buttons = document.querySelectorAll('.btn');
 buttons.forEach((button) => {
-    button.addEventListener('mouseenter', (e) =>{
-        button.style.display = 'none';
+    button.addEventListener('mouseover', (e) =>{
+        button.style.borderColor = 'black';
     })
 })
 
-
-
-
-
-
-
-
-
-
+// Function that I couldnt get to work
 let newFooter = document.createElement('p');
 let footer = document.querySelector('footer');
 footer.append(newFooter);
@@ -59,4 +55,17 @@ function selectWords(e) {
 }
 
 words[0].addEventListener('select', selectWords);
+
+
+//stop propagation
+let destination = document.querySelector('.destination');
+destination.addEventListener('click', (e) => {
+    destination.style.backgroundColor = 'yellow';
+})
+let destHead = destination.querySelector('h4');
+destHead.addEventListener('click', (e) => {
+    destHead.style.color = 'DarkRed';
+    destHead.stopPropagation();
+})
+
 

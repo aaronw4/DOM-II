@@ -70,10 +70,9 @@ destHead.addEventListener('click', (e) => {
 
 //attempted animation
 let h2 = document.querySelector('h2');
-
 function animation(elem) {    
-TweenMax.to(h2, 6, {backgroundColor:'indigo'});
+    TweenLite.to(h2, 6, {backgroundColor: 'white'});
+    h2.style.backgroundColor = 'blue'
 }
-
 h2.addEventListener('mouseover', animation);
 

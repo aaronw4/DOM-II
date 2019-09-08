@@ -68,11 +68,18 @@ destHead.addEventListener('click', (e) => {
     destHead.stopPropagation();
 })
 
-//attempted animation
+//animations
 let h2 = document.querySelector('h2');
 function animation(elem) {    
-    TweenLite.to(h2, 6, {backgroundColor: 'white'});
+    TweenLite.to(h2, 2, {backgroundColor: 'white'});
     h2.style.backgroundColor = 'blue'
 }
 h2.addEventListener('mouseover', animation);
 
+let anchor = document.querySelectorAll('a');
+function bounce(elem) {
+    TweenMax.from(anchor, 0.5, {opacity:0, scale:0, ease:Bounce.easeOut});
+}
+anchor.forEach((button) => {
+    button.addEventListener('mouseover', bounce);
+})

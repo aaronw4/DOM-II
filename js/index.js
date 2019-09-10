@@ -68,6 +68,12 @@ destHead.addEventListener('click', (e) => {
     destHead.stopPropagation();
 })
 
+//prevent default
+let anchor = document.querySelectorAll('a');
+anchor[0].addEventListener('click', (e) => {
+    e.preventDefault();
+});
+
 //animations
 let h2 = document.querySelector('h2');
 function animation(elem) {    
@@ -76,7 +82,7 @@ function animation(elem) {
 }
 h2.addEventListener('mouseover', animation);
 
-let anchor = document.querySelectorAll('a');
+
 function bounce(elem) {
     TweenMax.from(anchor, 0.5, {opacity:0, scale:0, ease:Bounce.easeOut});
 }
